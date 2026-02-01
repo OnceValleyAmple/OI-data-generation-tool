@@ -1,7 +1,7 @@
 /**
 @Author Ample
     @Time 2024/7/11 15:05
-    @Description: OI/ACM ÌâÄ¿Êı¾İÉú³ÉÍ·ÎÄ¼ş
+    @Description: OI/ACM é¢˜ç›®æ•°æ®ç”Ÿæˆå¤´æ–‡ä»¶
 */
 
 #ifndef CLION_DATAGENERATOR_H
@@ -10,64 +10,64 @@
 #include <bits/stdc++.h>
 
 namespace AMPLE_RAND {
-    // ÉùÃ÷£º¸æËß±àÒëÆ÷Õâ¸ö±äÁ¿ÔÚ±ğ´¦¶¨ÒåÁË
+    // å£°æ˜ï¼šå‘Šè¯‰ç¼–è¯‘å™¨è¿™ä¸ªå˜é‡åœ¨åˆ«å¤„å®šä¹‰äº†
     extern std::mt19937_64 rng_64;
 
     /**
-     * @brief Ëæ»úÕûÊıÉú³Éº¯Êı
-     * @param l ×óÇø¼ä¶Ëµã
-     * @param r ÓÒÇø¼ä¶Ëµã
-     * @param opt Æ«ÒÆÒò×Ó
-     * opt > 1 ¡ú Æ«Ïò r;
-     * opt < 1 ¡ú Æ«Ïò l;
-     * opt = 1 ¡ú ¾ùÔÈ·Ö²¼
-     * @return Ëæ»úÕûÊı
+     * @brief éšæœºæ•´æ•°ç”Ÿæˆå‡½æ•°
+     * @param l å·¦åŒºé—´ç«¯ç‚¹
+     * @param r å³åŒºé—´ç«¯ç‚¹
+     * @param opt åç§»å› å­
+     * opt > 1 â†’ åå‘ r;
+     * opt < 1 â†’ åå‘ l;
+     * opt = 1 â†’ å‡åŒ€åˆ†å¸ƒ
+     * @return éšæœºæ•´æ•°
      */
     long long random( long long l , long long r , double opt = 1.0 );
 
     /**
-     * @brief Ëæ»úÊµÊıÉú³Éº¯Êı
-     * @param l ×óÇø¼ä¶Ëµã
-     * @param r ÓÒÇø¼ä¶Ëµã
-     * @param opt Æ«ÒÆÒò×Ó
-     * opt > 1 ¡ú Æ«Ïò r;
-     * opt < 1 ¡ú Æ«Ïò l;
-     * opt = 1 ¡ú ¾ùÔÈ·Ö²¼
-     * @return Ëæ»úÊµÊı
+     * @brief éšæœºå®æ•°ç”Ÿæˆå‡½æ•°
+     * @param l å·¦åŒºé—´ç«¯ç‚¹
+     * @param r å³åŒºé—´ç«¯ç‚¹
+     * @param opt åç§»å› å­
+     * opt > 1 â†’ åå‘ r;
+     * opt < 1 â†’ åå‘ l;
+     * opt = 1 â†’ å‡åŒ€åˆ†å¸ƒ
+     * @return éšæœºå®æ•°
      */
     double randomDouble( double l , double r , double opt = 1.0 );
 
     /**
-     * @brief Ëæ»ú×Ö·û´®Éú³ÉÆ÷
-     * @param n ×Ö·û´®³¤¶È
-     * @param chars Ëæ»ú×Ö·û´®ÄÚÈİ
-     * @param allowZero ÊÇ·ñÔÊĞí×Ö·û´®ÖĞ³öÏÖÇ°µ¼Áã Ä¬ÈÏ²»ÔÊĞí
-     * @return Ëæ»ú×Ö·û´®
+     * @brief éšæœºå­—ç¬¦ä¸²ç”Ÿæˆå™¨
+     * @param n å­—ç¬¦ä¸²é•¿åº¦
+     * @param chars éšæœºå­—ç¬¦ä¸²å†…å®¹
+     * @param allowZero æ˜¯å¦å…è®¸å­—ç¬¦ä¸²ä¸­å‡ºç°å‰å¯¼é›¶ é»˜è®¤ä¸å…è®¸
+     * @return éšæœºå­—ç¬¦ä¸²
      */
     std::string randomString( int n , std::string chars , bool allowZero = false );
 
     /**
-     * @brief Ëæ»ú×Ö·û´®Éú³ÉÆ÷
-     * @param chars ×Ö·û´®Êı×éÄÚÈİ
-     * @return ×Ö·û´®Êı×éÖĞËæ»ú×Ö·û´®
+     * @brief éšæœºå­—ç¬¦ä¸²ç”Ÿæˆå™¨
+     * @param chars å­—ç¬¦ä¸²æ•°ç»„å†…å®¹
+     * @return å­—ç¬¦ä¸²æ•°ç»„ä¸­éšæœºå­—ç¬¦ä¸²
      */
     std::string randomString( std::vector < std::string > chars );
 
     /**
-     * Ëæ»ú»ù´¡º¯ÊıÀà
+     * éšæœºåŸºç¡€å‡½æ•°ç±»
      */
     class RANDOMBASIC {
         public:
             /**
-             * @brief Ëæ»ú´òÂÒ [first, last) ·¶Î§ÄÚµÄÔªËØ
-             * @tparam RandomIt Ëæ»ú·ÃÎÊµü´úÆ÷ÀàĞÍ
-             * @tparam URBG ¾ùÔÈËæ»úÊıÉú³ÉÆ÷ÀàĞÍ
-             * @param first ÆğÊ¼µü´úÆ÷
-             * @param last ½áÊøµü´úÆ÷
-             * @param rng_64 Ëæ»úÊıÒıÇæ
+             * @brief éšæœºæ‰“ä¹± [first, last) èŒƒå›´å†…çš„å…ƒç´ 
+             * @tparam RandomIt éšæœºè®¿é—®è¿­ä»£å™¨ç±»å‹
+             * @tparam URBG å‡åŒ€éšæœºæ•°ç”Ÿæˆå™¨ç±»å‹
+             * @param first èµ·å§‹è¿­ä»£å™¨
+             * @param last ç»“æŸè¿­ä»£å™¨
+             * @param rng_64 éšæœºæ•°å¼•æ“
              *
-             * Ê±¼ä¸´ÔÓ¶È: O(n)
-             * ¿Õ¼ä¸´ÔÓ¶È: O(1)
+             * æ—¶é—´å¤æ‚åº¦: O(n)
+             * ç©ºé—´å¤æ‚åº¦: O(1)
              */
             template <
                 typename RandomIt ,
@@ -80,24 +80,24 @@ namespace AMPLE_RAND {
                 > > void shuffle( RandomIt first , RandomIt last , URBG &&rng_64 ) {
                 using diff_t = typename std::iterator_traits < RandomIt >::difference_type;
                 const diff_t n = last - first;
-                // ±ß½çÇé¿ö£º0 »ò 1 ¸öÔªËØÎŞĞè´òÂÒ
+                // è¾¹ç•Œæƒ…å†µï¼š0 æˆ– 1 ä¸ªå…ƒç´ æ— éœ€æ‰“ä¹±
                 if ( n <= 1 ) return;
-                // Fisher-Yates Ëã·¨£¨´ÓºóÏòÇ°£©
-                // ²»±äÁ¿£º[i+1, n) ·¶Î§ÄÚµÄÔªËØÒÑ¾­È·¶¨
+                // Fisher-Yates ç®—æ³•ï¼ˆä»åå‘å‰ï¼‰
+                // ä¸å˜é‡ï¼š[i+1, n) èŒƒå›´å†…çš„å…ƒç´ å·²ç»ç¡®å®š
                 for ( diff_t i = n - 1 ; i > 0 ; --i ) {
-                    // ÔÚ [0, i] ÖĞ¾ùÔÈËæ»úÑ¡Ôñ
+                    // åœ¨ [0, i] ä¸­å‡åŒ€éšæœºé€‰æ‹©
                     std::uniform_int_distribution < diff_t > dist( 0 , i );
                     const diff_t j = dist( rng_64 );
-                    // ±ÜÃâ×Ô½»»»£¨Î¢ÓÅ»¯£©
+                    // é¿å…è‡ªäº¤æ¢ï¼ˆå¾®ä¼˜åŒ–ï¼‰
                     if ( i != j ) {
                         std::swap( first[i] , first[j] );
                     }
                 }
             }
 
-            // ¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T
-            // ÖØÔØ 1£ºµü´úÆ÷°æ±¾£¨Ê¹ÓÃÄ¬ÈÏÒıÇæ£©
-            // ¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T
+            // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+            // é‡è½½ 1ï¼šè¿­ä»£å™¨ç‰ˆæœ¬ï¼ˆä½¿ç”¨é»˜è®¤å¼•æ“ï¼‰
+            // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
             template <
                 typename RandomIt ,
                 typename = std::enable_if_t <
@@ -109,9 +109,9 @@ namespace AMPLE_RAND {
                 shuffle( first , last , rng_64 );
             }
 
-            // ¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T
-            // ÖØÔØ 2£ºÈİÆ÷°æ±¾£¨vector, deque, string µÈ£©
-            // ¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T
+            // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+            // é‡è½½ 2ï¼šå®¹å™¨ç‰ˆæœ¬ï¼ˆvector, deque, string ç­‰ï¼‰
+            // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
             template <
                 typename Container ,
                 typename URBG ,
@@ -128,9 +128,9 @@ namespace AMPLE_RAND {
                 shuffle( c.begin() , c.end() , rng_64 );
             }
 
-            // ¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T
-            // ÖØÔØ 3£ºC ·ç¸ñ¾²Ì¬Êı×é
-            // ¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T
+            // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+            // é‡è½½ 3ï¼šC é£æ ¼é™æ€æ•°ç»„
+            // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
             template < typename T , std::size_t N , typename URBG > void shuffle( T ( &arr )[N] , URBG &&rng_64 ) {
                 shuffle( std::begin( arr ) , std::end( arr ) , std::forward < URBG >( rng_64 ) );
             }
@@ -139,9 +139,9 @@ namespace AMPLE_RAND {
                 shuffle( std::begin( arr ) , std::end( arr ) , rng_64 );
             }
 
-            // ¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T
-            // ÖØÔØ 4£ºstd::array ÏÔÊ½ÌØ»¯£¨Ìá¸ßÀàĞÍÍÆµ¼ÓÅÏÈ¼¶£©
-            // ¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T
+            // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+            // é‡è½½ 4ï¼šstd::array æ˜¾å¼ç‰¹åŒ–ï¼ˆæé«˜ç±»å‹æ¨å¯¼ä¼˜å…ˆçº§ï¼‰
+            // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
             template < typename T , std::size_t N , typename URBG > void shuffle(
                 std::array < T , N > &arr , URBG &&rng_64 ) {
                 shuffle( arr.begin() , arr.end() , std::forward < URBG >( rng_64 ) );
@@ -151,11 +151,11 @@ namespace AMPLE_RAND {
                 shuffle( arr.begin() , arr.end() , rng_64 );
             }
 
-            // ¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T
-            // ¸ß¼¶°æ±¾£º·µ»Ø´òÂÒºóµÄ¸±±¾£¨²»ĞŞ¸ÄÔ­Êı×é£©
-            // ¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T
+            // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+            // é«˜çº§ç‰ˆæœ¬ï¼šè¿”å›æ‰“ä¹±åçš„å‰¯æœ¬ï¼ˆä¸ä¿®æ”¹åŸæ•°ç»„ï¼‰
+            // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
             template < typename Container > Container shuffled( Container c ) {
-                // ×¢Òâ£º°´Öµ´«µİ£¬×Ô¶¯¿½±´
+                // æ³¨æ„ï¼šæŒ‰å€¼ä¼ é€’ï¼Œè‡ªåŠ¨æ‹·è´
                 shuffle( c );
                 return c;
             }
@@ -170,116 +170,116 @@ namespace AMPLE_RAND {
     static RANDOMBASIC RandomBasic;
 
     /**
-     * Ëæ»úÉú³ÉÊ÷Àà
+     * éšæœºç”Ÿæˆæ ‘ç±»
      */
     class RANDOMTREE {
         public:
             /**
-             * @brief Éú³ÉËæ»úÊ÷
+             * @brief ç”Ÿæˆéšæœºæ ‘
              *
-             * @param n             ½ÚµãÊıÁ¿ (>= 1)
-             * @param base          ½ÚµãÆ«ÒÆÁ¿£¬Ä¬ÈÏÊÇ 1
-             * @param root          ¸ù½Úµã±àºÅ [0, n-1]
-             * @param rho           Éî¶È¿ØÖÆ²ÎÊı (> 0)
-             *                      - rho ¡ú 0:  ĞÇĞÎÊ÷£¨×îÇ³£©
-             *                      - rho = 1:  ¾ùÔÈËæ»úÊ÷£¬ÆÚÍûÉî¶È O(log n)
-             *                      - rho = 2:  ½ÏÉîµÄÊ÷£¨Ä¬ÈÏ£©
-             *                      - rho ¡ú ¡Ş:  Á´£¨×îÉî£©
-             * @param vertices_rand ÊÇ·ñËæ»ú´òÂÒ½Úµã±àºÅ
-             *                      - false: ±£³Ö ¸¸½Úµã±àºÅ < ×Ó½Úµã±àºÅ
-             *                               £¨´ËÊ± root ±ØĞëÎª 0£©
-             *                      - true:  Ëæ»ú´òÂÒ±àºÅ£¬µ« root ±£³Ö²»±ä
+             * @param n             èŠ‚ç‚¹æ•°é‡ (>= 1)
+             * @param base          èŠ‚ç‚¹åç§»é‡ï¼Œé»˜è®¤æ˜¯ 1
+             * @param root          æ ¹èŠ‚ç‚¹ç¼–å· [0, n-1]
+             * @param rho           æ·±åº¦æ§åˆ¶å‚æ•° (> 0)
+             *                      - rho â†’ 0:  æ˜Ÿå½¢æ ‘ï¼ˆæœ€æµ…ï¼‰
+             *                      - rho = 1:  å‡åŒ€éšæœºæ ‘ï¼ŒæœŸæœ›æ·±åº¦ O(log n)
+             *                      - rho = 2:  è¾ƒæ·±çš„æ ‘ï¼ˆé»˜è®¤ï¼‰
+             *                      - rho â†’ âˆ:  é“¾ï¼ˆæœ€æ·±ï¼‰
+             * @param vertices_rand æ˜¯å¦éšæœºæ‰“ä¹±èŠ‚ç‚¹ç¼–å·
+             *                      - false: ä¿æŒ çˆ¶èŠ‚ç‚¹ç¼–å· < å­èŠ‚ç‚¹ç¼–å·
+             *                               ï¼ˆæ­¤æ—¶ root å¿…é¡»ä¸º 0ï¼‰
+             *                      - true:  éšæœºæ‰“ä¹±ç¼–å·ï¼Œä½† root ä¿æŒä¸å˜
              *
-             * @return vector< pair< int, int > > ±ß¼¯Êı×é
+             * @return vector< pair< int, int > > è¾¹é›†æ•°ç»„
              *
-             * @note ½Úµã±àºÅ´Ó 1 ¿ªÊ¼£¬¼´ [1, n]
+             * @note èŠ‚ç‚¹ç¼–å·ä» 1 å¼€å§‹ï¼Œå³ [1, n]
              */
             std::vector < std::pair < int , int > > random_tree( int n , int base = 1 , int root = 0 ,
                                                                  double rho = 2.0 , bool vertices_rand = true );
 
             /**
-             * @brief Éú³ÉËæ»úÊ÷
+             * @brief ç”Ÿæˆéšæœºæ ‘
              *
-             * @param n             ½ÚµãÊıÁ¿ (>= 1)
-             * @param base          ½ÚµãÆ«ÒÆÁ¿£¬Ä¬ÈÏÊÇ 1
-             * @param root          ¸ù½Úµã±àºÅ [0, n-1]
-             * @param rho           Éî¶È¿ØÖÆ²ÎÊı (> 0)
-             *                      - rho ¡ú 0:  ĞÇĞÎÊ÷£¨×îÇ³£©
-             *                      - rho = 1:  ¾ùÔÈËæ»úÊ÷£¬ÆÚÍûÉî¶È O(log n)
-             *                      - rho = 2:  ½ÏÉîµÄÊ÷£¨Ä¬ÈÏ£©
-             *                      - rho ¡ú ¡Ş:  Á´£¨×îÉî£©
-             * @param vertices_rand ÊÇ·ñËæ»ú´òÂÒ½Úµã±àºÅ
-             *                      - false: ±£³Ö ¸¸½Úµã±àºÅ < ×Ó½Úµã±àºÅ
-             *                               £¨´ËÊ± root ±ØĞëÎª 0£©
-             *                      - true:  Ëæ»ú´òÂÒ±àºÅ£¬µ« root ±£³Ö²»±ä
+             * @param n             èŠ‚ç‚¹æ•°é‡ (>= 1)
+             * @param base          èŠ‚ç‚¹åç§»é‡ï¼Œé»˜è®¤æ˜¯ 1
+             * @param root          æ ¹èŠ‚ç‚¹ç¼–å· [0, n-1]
+             * @param rho           æ·±åº¦æ§åˆ¶å‚æ•° (> 0)
+             *                      - rho â†’ 0:  æ˜Ÿå½¢æ ‘ï¼ˆæœ€æµ…ï¼‰
+             *                      - rho = 1:  å‡åŒ€éšæœºæ ‘ï¼ŒæœŸæœ›æ·±åº¦ O(log n)
+             *                      - rho = 2:  è¾ƒæ·±çš„æ ‘ï¼ˆé»˜è®¤ï¼‰
+             *                      - rho â†’ âˆ:  é“¾ï¼ˆæœ€æ·±ï¼‰
+             * @param vertices_rand æ˜¯å¦éšæœºæ‰“ä¹±èŠ‚ç‚¹ç¼–å·
+             *                      - false: ä¿æŒ çˆ¶èŠ‚ç‚¹ç¼–å· < å­èŠ‚ç‚¹ç¼–å·
+             *                               ï¼ˆæ­¤æ—¶ root å¿…é¡»ä¸º 0ï¼‰
+             *                      - true:  éšæœºæ‰“ä¹±ç¼–å·ï¼Œä½† root ä¿æŒä¸å˜
              *
-             * @return vector< int > ¸¸Ç×Êı×é
+             * @return vector< int > çˆ¶äº²æ•°ç»„
              *
-             * @note ½Úµã±àºÅ´Ó 1 ¿ªÊ¼£¬¼´ [1, n]
+             * @note èŠ‚ç‚¹ç¼–å·ä» 1 å¼€å§‹ï¼Œå³ [1, n]
              */
             std::vector < int > random_tree_parent( int n , int base = 1 , int root = 0 , double rho = 2.0 ,
                                                     bool vertices_rand = true );
 
             /**
-             * @brief Ëæ»úÉú³ÉÊ÷Á´
-             * @param n ½ÚµãÊıÁ¿ (>= 1)
-             * @param base ½ÚµãÆ«ÒÆÁ¿£¬Ä¬ÈÏÊÇ 1
-             * @param root ¸ù½Úµã±àºÅ [0, n-1]
-             * @param vertices_rand ÊÇ·ñËæ»ú´òÂÒ½Úµã±àºÅ
-             * @return vector< pair< int, int > > ±ß¼¯Êı×é
+             * @brief éšæœºç”Ÿæˆæ ‘é“¾
+             * @param n èŠ‚ç‚¹æ•°é‡ (>= 1)
+             * @param base èŠ‚ç‚¹åç§»é‡ï¼Œé»˜è®¤æ˜¯ 1
+             * @param root æ ¹èŠ‚ç‚¹ç¼–å· [0, n-1]
+             * @param vertices_rand æ˜¯å¦éšæœºæ‰“ä¹±èŠ‚ç‚¹ç¼–å·
+             * @return vector< pair< int, int > > è¾¹é›†æ•°ç»„
              *
-             * @note ½Úµã±àºÅ´Ó 1 ¿ªÊ¼£¬¼´ [1, n]
+             * @note èŠ‚ç‚¹ç¼–å·ä» 1 å¼€å§‹ï¼Œå³ [1, n]
              */
             std::vector < std::pair < int , int > > random_tree_chain( int n , int base = 1 , int root = 0 ,
                                                                        bool vertices_rand = true );
 
             /**
-             * @brief       Ëæ»úÉú³ÉĞÇÊ÷£¨¾Õ»¨£©
-             * @param n     ½ÚµãÊıÁ¿ (>= 1)
-             * @param base  ½ÚµãÆ«ÒÆÁ¿£¬Ä¬ÈÏÊÇ 1
-             * @param root  ¸ù½Úµã±àºÅ [0, n-1]
-             * @param vertices_rand     ÊÇ·ñËæ»ú´òÂÒ½Úµã±àºÅ
-             * @return vector< pair< int, int > > ±ß¼¯Êı×é
+             * @brief       éšæœºç”Ÿæˆæ˜Ÿæ ‘ï¼ˆèŠèŠ±ï¼‰
+             * @param n     èŠ‚ç‚¹æ•°é‡ (>= 1)
+             * @param base  èŠ‚ç‚¹åç§»é‡ï¼Œé»˜è®¤æ˜¯ 1
+             * @param root  æ ¹èŠ‚ç‚¹ç¼–å· [0, n-1]
+             * @param vertices_rand     æ˜¯å¦éšæœºæ‰“ä¹±èŠ‚ç‚¹ç¼–å·
+             * @return vector< pair< int, int > > è¾¹é›†æ•°ç»„
              *
-             * @note ½Úµã±àºÅ´Ó 1 ¿ªÊ¼£¬¼´ [1, n]
+             * @note èŠ‚ç‚¹ç¼–å·ä» 1 å¼€å§‹ï¼Œå³ [1, n]
              */
             std::vector < std::pair < int , int > > random_tree_star( int n , int base = 1 , int root = 0 ,
                                                                       bool vertices_rand = true );
 
             /**
-             * @brief       Éú³ÉËæ»ú¶ş²æÊ÷
-             * @param n     ½ÚµãÊıÁ¿ (>= 1)
-             * @param base  ½ÚµãÆ«ÒÆÁ¿£¬Ä¬ÈÏÊÇ 1
-             * @param root  ¸ù½Úµã±àºÅ [0, n-1]
-             * @param rho   Éî¶È¿ØÖÆ²ÎÊı£¨Í¬Ëæ»úÊ÷£©
-             *                      - rho ¡ú 0:  Ç³¶ø¿í
-             *                      - rho = 1:  ¾ùÔÈËæ»ú
-             *                      - rho ¡ú ¡Ş:  Éî¶øÕ­£¨Ç÷ÏòÁ´£©
-             * @param vertices_rand ÊÇ·ñËæ»ú´òÂÒ½Úµã±àºÅ
-             * @param balance       Æ½ºâ¶È¿ØÖÆ [0, 1]
-             *                      - 0: ÍêÈ«Ëæ»úÑ¡Ôñ×ó/ÓÒ
-             *                      - 1: ¾¡Á¿Æ½ºâ£¨ÓÅÏÈÌî³ä×Ó½ÚµãÉÙµÄ·½Ïò£©
-             * @return vector< pair< int, int > > ±ß¼¯Êı×é
+             * @brief       ç”ŸæˆéšæœºäºŒå‰æ ‘
+             * @param n     èŠ‚ç‚¹æ•°é‡ (>= 1)
+             * @param base  èŠ‚ç‚¹åç§»é‡ï¼Œé»˜è®¤æ˜¯ 1
+             * @param root  æ ¹èŠ‚ç‚¹ç¼–å· [0, n-1]
+             * @param rho   æ·±åº¦æ§åˆ¶å‚æ•°ï¼ˆåŒéšæœºæ ‘ï¼‰
+             *                      - rho â†’ 0:  æµ…è€Œå®½
+             *                      - rho = 1:  å‡åŒ€éšæœº
+             *                      - rho â†’ âˆ:  æ·±è€Œçª„ï¼ˆè¶‹å‘é“¾ï¼‰
+             * @param vertices_rand æ˜¯å¦éšæœºæ‰“ä¹±èŠ‚ç‚¹ç¼–å·
+             * @param balance       å¹³è¡¡åº¦æ§åˆ¶ [0, 1]
+             *                      - 0: å®Œå…¨éšæœºé€‰æ‹©å·¦/å³
+             *                      - 1: å°½é‡å¹³è¡¡ï¼ˆä¼˜å…ˆå¡«å……å­èŠ‚ç‚¹å°‘çš„æ–¹å‘ï¼‰
+             * @return vector< pair< int, int > > è¾¹é›†æ•°ç»„
              *
-             * @note ½Úµã±àºÅ´Ó 1 ¿ªÊ¼£¬¼´ [1, n]
+             * @note èŠ‚ç‚¹ç¼–å·ä» 1 å¼€å§‹ï¼Œå³ [1, n]
              */
             std::vector < std::pair < int , int > > random_binary_tree( int n , int base = 1 , int root = 0 ,
                                                                         double rho = 1.0 , bool vertices_rand = true ,
                                                                         int balance = 0 );
 
             /**
-             * @brief Éú³ÉËæ»úÉ­ÁÖ
-             * @param n ½ÚµãÊıÁ¿ (>= 1)
-             * @param num_trees Ê÷ÊıÁ¿ [1,n]
-             * @param base ½ÚµãÆ«ÒÆÁ¿£¬Ä¬ÈÏÊÇ 1
-             * @param rho Ê÷Éî¶È¿ØÖÆ²ÎÊı£¨Í¬Ëæ»úÊ÷£©
-             * @param vertices_rand ÊÇ·ñËæ»ú´òÂÒ½Úµã±àºÅ
-             * @param size_variance Ê÷´óĞ¡µÄ·½²î¿ØÖÆ [0, 1]
-             *                      - 0: ËùÓĞÊ÷´óĞ¡¾¡Á¿ÏàµÈ
-             *                      - 1: Ê÷´óĞ¡ÍêÈ«Ëæ»ú
-             * @return vector< pair< int, int > > ±ß¼¯Êı×é
+             * @brief ç”Ÿæˆéšæœºæ£®æ—
+             * @param n èŠ‚ç‚¹æ•°é‡ (>= 1)
+             * @param num_trees æ ‘æ•°é‡ [1,n]
+             * @param base èŠ‚ç‚¹åç§»é‡ï¼Œé»˜è®¤æ˜¯ 1
+             * @param rho æ ‘æ·±åº¦æ§åˆ¶å‚æ•°ï¼ˆåŒéšæœºæ ‘ï¼‰
+             * @param vertices_rand æ˜¯å¦éšæœºæ‰“ä¹±èŠ‚ç‚¹ç¼–å·
+             * @param size_variance æ ‘å¤§å°çš„æ–¹å·®æ§åˆ¶ [0, 1]
+             *                      - 0: æ‰€æœ‰æ ‘å¤§å°å°½é‡ç›¸ç­‰
+             *                      - 1: æ ‘å¤§å°å®Œå…¨éšæœº
+             * @return vector< pair< int, int > > è¾¹é›†æ•°ç»„
              *
-             * @note ½Úµã±àºÅ´Ó 1 ¿ªÊ¼£¬¼´ [1, n]
+             * @note èŠ‚ç‚¹ç¼–å·ä» 1 å¼€å§‹ï¼Œå³ [1, n]
              */
             std::vector < std::pair < int , int > > random_forest_tree( int n , int num_trees , int base = 1 ,
                                                                         double rho = 1.0 , bool vertices_rand = true ,
@@ -289,7 +289,7 @@ namespace AMPLE_RAND {
     static RANDOMTREE RandomTree;
 
     /**
-     * Ëæ»úÉú³ÉÍ¼Àà
+     * éšæœºç”Ÿæˆå›¾ç±»
      */
     class RANDOMGRAPH {
         private:
@@ -306,77 +306,77 @@ namespace AMPLE_RAND {
             };
 
             /**
-             * @brief ¼ÆËã½Úµã×îĞ¡±ßÊı
-             * @param n ½ÚµãÊıÁ¿
-             * @param connected ÊÇ·ñÁ¬Í¨
-             * @param bool Ê¡ÂÔ²ÎÊı£¬Í¼µÄÓĞÏòĞÔ
-             * @return ½Úµã×îĞ¡±ßÊı
+             * @brief è®¡ç®—èŠ‚ç‚¹æœ€å°è¾¹æ•°
+             * @param n èŠ‚ç‚¹æ•°é‡
+             * @param connected æ˜¯å¦è¿é€š
+             * @param directional å›¾çš„æœ‰å‘æ€§
+             * @return èŠ‚ç‚¹æœ€å°è¾¹æ•°
              */
-            static int compute_min_edges( int n , bool connected , bool /*directional*/ ) {
-                if ( !connected ) return 0;
-                if ( n <= 1 ) return 0;
-                return n - 1; // Éú³ÉÊ÷
+            static int compute_min_edges( int n , bool connected , bool directional ) {
+                if ( !connected || n <= 1 ) return 0;
+                if ( directional ) return n; // æœ‰å‘è¿é€šï¼šéœ€è¦æˆç¯ï¼Œè‡³å°‘ n æ¡è¾¹
+                return n - 1; // æ— å‘è¿é€šï¼šæ ‘ï¼Œè‡³å°‘ n-1 æ¡è¾¹
             }
 
             /**
-             * @brief ¼ÆËã½Úµã×î´ó±ßÊı
-             * @param n ½ÚµãÊıÁ¿
-             * @param repeated_edges ÊÇ·ñÖØ±ß
-             * @param self_rings ÊÇ·ñ×Ô»·
-             * @param directional ÊÇ·ñÓĞÏò
-             * @return ½Úµã×î´ó±ßÊı
+             * @brief è®¡ç®—èŠ‚ç‚¹æœ€å¤§è¾¹æ•°
+             * @param n èŠ‚ç‚¹æ•°é‡
+             * @param repeated_edges æ˜¯å¦é‡è¾¹
+             * @param self_rings æ˜¯å¦è‡ªç¯
+             * @param directional æ˜¯å¦æœ‰å‘
+             * @return èŠ‚ç‚¹æœ€å¤§è¾¹æ•°
              */
             static long long compute_max_edges( int n , bool repeated_edges , bool self_rings , bool directional ) {
                 if ( n <= 0 ) return 0;
                 if ( repeated_edges ) {
-                    // ÔÊĞíÖØ±ßÊ±£¬ÉèÖÃÒ»¸öÊµ¼ÊÉÏÏŞ
+                    // å…è®¸é‡è¾¹æ—¶ï¼Œè®¾ç½®ä¸€ä¸ªå®é™…ä¸Šé™
                     return static_cast < long long >( n ) * n * 10;
                 }
                 long long base;
                 if ( directional ) {
-                    base = static_cast < long long >( n ) * ( n - 1 ); // ÓĞÏò£ºn(n-1)
+                    base = static_cast < long long >( n ) * ( n - 1 ); // æœ‰å‘ï¼šn(n-1)
                 } else {
-                    base = static_cast < long long >( n ) * ( n - 1 ) / 2; // ÎŞÏò£ºn(n-1)/2
+                    base = static_cast < long long >( n ) * ( n - 1 ) / 2; // æ— å‘ï¼šn(n-1)/2
                 }
                 if ( self_rings ) {
-                    base += n; // ¼ÓÉÏ n ¸ö×Ô»·
+                    base += n; // åŠ ä¸Š n ä¸ªè‡ªç¯
                 }
                 return base;
             }
 
         public:
             /**
-             * Ëæ»úÉú³ÉÍ¼£¨Ä¬ÈÏÎŞÏòÁ¬Í¨Í¼£¨ÎŞÖØ±ß¡¢ÎŞ×Ô»·£©£©{µã,±ß} Ğ£ÑéÉú³É
-             * @param n ÆÚÍûµÄ½ÚµãÊı (±ØĞë > 0)
-             * @param m ÆÚÍûµÄ±ßÊı (±ØĞë >= 0)
-             * @param connected ÊÇ·ñÒªÇóÁ¬Í¨£¨ÎŞÏòÍ¼ÎªÁ¬Í¨£¬ÓĞÏòÍ¼ÎªÈõÁ¬Í¨£©
-             * @param repeated_edges ÊÇ·ñÔÊĞíÖØ±ß
-             * @param self_rings ÊÇ·ñÔÊĞí×Ô»·
-             * @param directional ÊÇ·ñÎªÓĞÏòÍ¼
-             * @param opt ½Ó½ü¶È²ÎÊı ¡Ê (0, +¡Ş)
-             *                        - opt ¡ú 0:   ·µ»ØÖµ¿ÉÄÜÔÚºÏ·¨·¶Î§ÄÚËæ»úÆ«ÒÆ
-             *                        - opt ¡ú ¡Ş:   ·µ»ØÖµ¾¡¿ÉÄÜ½Ó½üÊäÈëµÄ (n, m)
-             *                        - opt = 1:   ÖĞµÈ³Ì¶ÈµÄËæ»úĞÔ
-             *                        - opt = 10:  ½ÏĞ¡µÄËæ»ú²¨¶¯£¨ÍÆ¼öÄ¬ÈÏÖµ£©
-             * @throws std::invalid_argument Èç¹û²ÎÊıÍêÈ«²»¿ÉĞĞ
-             * @return std::pair<int, int> {µã,±ß}
+             * éšæœºç”Ÿæˆå›¾ï¼ˆé»˜è®¤æ— å‘è¿é€šå›¾ï¼ˆæ— é‡è¾¹ã€æ— è‡ªç¯ï¼‰ï¼‰{ç‚¹,è¾¹} æ ¡éªŒç”Ÿæˆ
+             * @param n æœŸæœ›çš„èŠ‚ç‚¹æ•° (å¿…é¡» > 0)
+             * @param m æœŸæœ›çš„è¾¹æ•° (å¿…é¡» >= 0)
+             * @param connected æ˜¯å¦è¦æ±‚è¿é€šï¼ˆæ— å‘å›¾ä¸ºè¿é€šï¼Œæœ‰å‘å›¾ä¸ºå¼±è¿é€šï¼‰
+             * @param repeated_edges æ˜¯å¦å…è®¸é‡è¾¹
+             * @param self_rings æ˜¯å¦å…è®¸è‡ªç¯
+             * @param directional æ˜¯å¦ä¸ºæœ‰å‘å›¾
+             * @param opt æ¥è¿‘åº¦å‚æ•° âˆˆ (0, +âˆ)
+             *                        - opt â†’ 0:   è¿”å›å€¼å¯èƒ½åœ¨åˆæ³•èŒƒå›´å†…éšæœºåç§»
+             *                        - opt â†’ âˆ:   è¿”å›å€¼å°½å¯èƒ½æ¥è¿‘è¾“å…¥çš„ (n, m)
+             *                        - opt = 1:   ä¸­ç­‰ç¨‹åº¦çš„éšæœºæ€§
+             *                        - opt = 10:  è¾ƒå°çš„éšæœºæ³¢åŠ¨ï¼ˆæ¨èé»˜è®¤å€¼ï¼‰
+             * @throws std::invalid_argument å¦‚æœå‚æ•°å®Œå…¨ä¸å¯è¡Œ
+             * @return std::pair<int, int> {ç‚¹,è¾¹}
              */
             std::pair < int , int > valid_nm( int n , int m , bool connected = true , bool repeated_edges = false ,
                                               bool self_rings = false ,
                                               bool directional = false , double opt = 10.0 );
 
             /**
-             * @brief Éú³ÉËæ»úÍ¼£¨Ä¬ÈÏÎŞÏòÁ¬Í¨Í¼£¨ÎŞÖØ±ß¡¢ÎŞ×Ô»·£©£©
-             * @param n ½ÚµãÊıÁ¿
-             * @param m ±ßÊı
-             * @param connected ÊÇ·ñÁ¬Í¨
-             * @param repeated_edges ÊÇ·ñÔÊĞíÖØ±ß
-             * @param self_rings ÊÇ·ñÔÊĞí×Ô»·
-             * @param directional ÊÇ·ñÎªÓĞÏòÍ¼
-             * @param base ½ÚµãÆ«ÒÆÁ¿£¬Ä¬ÈÏÊÇ 1
-             * @return vector< pair< int, int > > ±ß¼¯Êı×é
+             * @brief ç”Ÿæˆéšæœºå›¾ï¼ˆé»˜è®¤æ— å‘è¿é€šå›¾ï¼ˆæ— é‡è¾¹ã€æ— è‡ªç¯ï¼‰ï¼‰
+             * @param n èŠ‚ç‚¹æ•°é‡
+             * @param m è¾¹æ•°
+             * @param connected æ˜¯å¦è¿é€š
+             * @param repeated_edges æ˜¯å¦å…è®¸é‡è¾¹
+             * @param self_rings æ˜¯å¦å…è®¸è‡ªç¯
+             * @param directional æ˜¯å¦ä¸ºæœ‰å‘å›¾
+             * @param base èŠ‚ç‚¹åç§»é‡ï¼Œé»˜è®¤æ˜¯ 1
+             * @return vector< pair< int, int > > è¾¹é›†æ•°ç»„
              *
-             * @note ½Úµã±àºÅ´Ó 1 ¿ªÊ¼£¬¼´ [1, n]
+             * @note èŠ‚ç‚¹ç¼–å·ä» 1 å¼€å§‹ï¼Œå³ [1, n]
              */
             std::vector < std::pair < int , int > > random_graph( int n , int m , bool connected = true ,
                                                                   bool repeated_edges = false ,
@@ -385,27 +385,27 @@ namespace AMPLE_RAND {
                                                                   int base = 1 );
 
             /**
-             * @brief Éú³É¶ş·ÖÍ¼
-             * @param n1 µÚÒ»²¿·Ö½ÚµãÊı
-             * @param n2 µÚ¶ş²¿·Ö½ÚµãÊı
-             * @param m ±ßÊı
-             * @param base ½ÚµãÆ«ÒÆÁ¿£¬Ä¬ÈÏÊÇ 1
-             * @param directional ÊÇ·ñÎªÓĞÏòÍ¼
-             * @return vector< pair< int, int > > ±ß¼¯Êı×é
+             * @brief ç”ŸæˆäºŒåˆ†å›¾
+             * @param n1 ç¬¬ä¸€éƒ¨åˆ†èŠ‚ç‚¹æ•°
+             * @param n2 ç¬¬äºŒéƒ¨åˆ†èŠ‚ç‚¹æ•°
+             * @param m è¾¹æ•°
+             * @param base èŠ‚ç‚¹åç§»é‡ï¼Œé»˜è®¤æ˜¯ 1
+             * @param directional æ˜¯å¦ä¸ºæœ‰å‘å›¾
+             * @return vector< pair< int, int > > è¾¹é›†æ•°ç»„
              *
-             * @note ½Úµã±àºÅ´Ó 1 ¿ªÊ¼£¬¼´ [1, n]
+             * @note èŠ‚ç‚¹ç¼–å·ä» 1 å¼€å§‹ï¼Œå³ [1, n]
              */
             std::vector < std::pair < int , int > > random_binary_graph(
                 int n1 , int n2 , int m , bool directional = false , int base = 1 );
 
             /**
-             * @brief Éú³É DAG£¨ÓĞÏòÎŞ»·Í¼£©
-             * @param n ½ÚµãÊıÁ¿
-             * @param m ±ßÊı
-             * @param base ½ÚµãÆ«ÒÆÁ¿£¬Ä¬ÈÏÊÇ 1
-             * @return vector< pair< int, int > > ±ß¼¯Êı×é
+             * @brief ç”Ÿæˆ DAGï¼ˆæœ‰å‘æ— ç¯å›¾ï¼‰
+             * @param n èŠ‚ç‚¹æ•°é‡
+             * @param m è¾¹æ•°
+             * @param base èŠ‚ç‚¹åç§»é‡ï¼Œé»˜è®¤æ˜¯ 1
+             * @return vector< pair< int, int > > è¾¹é›†æ•°ç»„
              *
-             * @note ½Úµã±àºÅ´Ó 1 ¿ªÊ¼£¬¼´ [1, n]
+             * @note èŠ‚ç‚¹ç¼–å·ä» 1 å¼€å§‹ï¼Œå³ [1, n]
              */
             std::vector < std::pair < int , int > > random_dag_graph(
                 int n , int m , int base = 1 );
@@ -414,40 +414,40 @@ namespace AMPLE_RAND {
     static RANDOMGRAPH RandomGraph;
 
     /**
-     * @brief ¿ìËÙÃİ
-     * @param x µ×Êı
-     * @param pow Ö¸Êı
-     * @param p Ä£Êı£¨Ä£ÊıÎª 0 Ê±²»È¡Ä££©
+     * @brief å¿«é€Ÿå¹‚
+     * @param x åº•æ•°
+     * @param pow æŒ‡æ•°
+     * @param p æ¨¡æ•°ï¼ˆæ¨¡æ•°ä¸º 0 æ—¶ä¸å–æ¨¡ï¼‰
      * @return x^pow % p
      */
     long long QuickPow( long long x , long long pow , long long p = 0 );
 
     /**
-     * @brief ÍØÕ¹Å·¼¸ÀïµÃËã·¨Çó½â×î´ó¹«Ô¼Êı gcd(a,b)
+     * @brief æ‹“å±•æ¬§å‡ é‡Œå¾—ç®—æ³•æ±‚è§£æœ€å¤§å…¬çº¦æ•° gcd(a,b)
      * @param a
      * @param b
      * @param x
      * @param y
-     * @return ×î´ó¹«Ô¼Êı d
+     * @return æœ€å¤§å…¬çº¦æ•° d
      */
     long long exgcd( long long a , long long b , long long &x , long long &y );
 
     /**
-     * @brief ´ò¿ªÊäÈëÎÄ¼şÁ÷
-     * @param str ÎÄ¼şÃû
+     * @brief æ‰“å¼€è¾“å…¥æ–‡ä»¶æµ
+     * @param str æ–‡ä»¶å
      * @return
      */
     std::ifstream openInputFileStream( const std::string &str );
 
     /**
-     * @brief ´ò¿ªÊä³öÎÄ¼şÁ÷
-     * @param str ÎÄ¼şÃû
+     * @brief æ‰“å¼€è¾“å‡ºæ–‡ä»¶æµ
+     * @param str æ–‡ä»¶å
      * @return
      */
     std::ofstream openOutputFileStream( const std::string &str );
 
     /**
-    * @brief ¸ß¾«¶ÈÄ£°åÀà BigIntTiny
+    * @brief é«˜ç²¾åº¦æ¨¡æ¿ç±» BigIntTiny
     */
     struct BigIntTiny {
         int sign;
@@ -591,35 +591,35 @@ namespace AMPLE_RAND {
     };
 
     /**
-     * @brief ÀàĞÍ°²È«µÄÄÚ´æÇåÁã/Ìî³ä¹¤¾ß
-     * ×Ô¶¯Çø·Ö POD ÀàĞÍºÍ¸´ÔÓÀàĞÍ£¬Ñ¡ÔñºÏÊÊµÄÇåÁã·½Ê½
+     * @brief ç±»å‹å®‰å…¨çš„å†…å­˜æ¸…é›¶/å¡«å……å·¥å…·
+     * è‡ªåŠ¨åŒºåˆ† POD ç±»å‹å’Œå¤æ‚ç±»å‹ï¼Œé€‰æ‹©åˆé€‚çš„æ¸…é›¶æ–¹å¼
      */
     class MemUtil {
         public:
-            // ==================== ÇåÁãµ¥¸ö±äÁ¿ ====================
+            // ==================== æ¸…é›¶å•ä¸ªå˜é‡ ====================
             template < typename T > static void zero( T &var ) {
                 if constexpr ( std::is_trivially_copyable_v < T > ) {
-                    // POD ÀàĞÍ£º¿ÉÒÔ°²È«Ê¹ÓÃ memset
+                    // POD ç±»å‹ï¼šå¯ä»¥å®‰å…¨ä½¿ç”¨ memset
                     memset( &var , 0 , sizeof( T ) );
                 } else {
-                    // ¸´ÔÓÀàĞÍ£ºÊ¹ÓÃÄ¬ÈÏ¹¹Ôìº¯ÊıÖØÖÃ
+                    // å¤æ‚ç±»å‹ï¼šä½¿ç”¨é»˜è®¤æ„é€ å‡½æ•°é‡ç½®
                     var = T{};
                 }
             }
 
-            // ==================== ÇåÁã C ·ç¸ñÊı×é ====================
+            // ==================== æ¸…é›¶ C é£æ ¼æ•°ç»„ ====================
             template < typename T , size_t N > static void zero( T ( &arr )[N] ) {
                 if constexpr ( std::is_trivially_copyable_v < T > ) {
                     memset( arr , 0 , sizeof( arr ) );
                 } else {
-                    // ¸´ÔÓÀàĞÍ£ºÖğ¸öÖØÖÃ
+                    // å¤æ‚ç±»å‹ï¼šé€ä¸ªé‡ç½®
                     for ( size_t i = 0 ; i < N ; ++i ) {
                         arr[i] = T{};
                     }
                 }
             }
 
-            // ==================== ÇåÁã std::array ====================
+            // ==================== æ¸…é›¶ std::array ====================
             template < typename T , size_t N > static void zero( std::array < T , N > &arr ) {
                 if constexpr ( std::is_trivially_copyable_v < T > ) {
                     memset( arr.data() , 0 , sizeof( T ) * N );
@@ -630,7 +630,7 @@ namespace AMPLE_RAND {
                 }
             }
 
-            // ==================== ÇåÁã std::vector ====================
+            // ==================== æ¸…é›¶ std::vector ====================
             template < typename T > static void zero( std::vector < T > &vec ) {
                 if ( vec.empty() ) return;
 
@@ -643,21 +643,21 @@ namespace AMPLE_RAND {
                 }
             }
 
-            // ==================== Ìî³äÌØ¶¨Öµ£¨×Ö½Ú¼¶£© ====================
-            // ½ö¶Ô POD ÀàĞÍ°²È«
+            // ==================== å¡«å……ç‰¹å®šå€¼ï¼ˆå­—èŠ‚çº§ï¼‰ ====================
+            // ä»…å¯¹ POD ç±»å‹å®‰å…¨
             template < typename T > static void fill( T &var , int value ) {
                 static_assert( std::is_trivially_copyable_v < T > ,
-                               "fill() Ö»ÄÜÓÃÓÚ POD ÀàĞÍ£¡¶ÔÓÚ¸´ÔÓÀàĞÍÇëÊ¹ÓÃ setValue()" );
+                               "fill() åªèƒ½ç”¨äº POD ç±»å‹ï¼å¯¹äºå¤æ‚ç±»å‹è¯·ä½¿ç”¨ setValue()" );
                 memset( &var , value , sizeof( T ) );
             }
 
             template < typename T , size_t N > static void fill( T ( &arr )[N] , int value ) {
                 static_assert( std::is_trivially_copyable_v < T > ,
-                               "fill() Ö»ÄÜÓÃÓÚ POD ÀàĞÍ£¡¶ÔÓÚ¸´ÔÓÀàĞÍÇëÊ¹ÓÃ setValue()" );
+                               "fill() åªèƒ½ç”¨äº POD ç±»å‹ï¼å¯¹äºå¤æ‚ç±»å‹è¯·ä½¿ç”¨ setValue()" );
                 memset( arr , value , sizeof( arr ) );
             }
 
-            // ==================== ÉèÖÃÌØ¶¨Öµ£¨¶ÔÏó¼¶£© ====================
+            // ==================== è®¾ç½®ç‰¹å®šå€¼ï¼ˆå¯¹è±¡çº§ï¼‰ ====================
             template < typename T , size_t N > static void setValue( T ( &arr )[N] , const T &value ) {
                 for ( size_t i = 0 ; i < N ; ++i ) {
                     arr[i] = value;
@@ -672,27 +672,27 @@ namespace AMPLE_RAND {
                 std::fill( arr.begin() , arr.end() , value );
             }
 
-            // ==================== Çå¿ÕÈİÆ÷£¨size ±äÎª 0£© ====================
+            // ==================== æ¸…ç©ºå®¹å™¨ï¼ˆsize å˜ä¸º 0ï¼‰ ====================
             template < typename T > static void clear( std::vector < T > &vec ) {
                 vec.clear();
             }
 
-            // ==================== ÖØÖÃÈİÆ÷´óĞ¡²¢ÇåÁã ====================
+            // ==================== é‡ç½®å®¹å™¨å¤§å°å¹¶æ¸…é›¶ ====================
             template < typename T > static void reset( std::vector < T > &vec , size_t newSize = 0 ) {
                 vec.assign( newSize , T{} );
             }
     };
 
     /**
-     * @brief Ìİ¶ÈÅäÖÃÉú³ÉÆ÷
-     * @details Ìİ¶ÈÅäÖÃÉú³ÉÆ÷
+     * @brief æ¢¯åº¦é…ç½®ç”Ÿæˆå™¨
+     * @details æ¢¯åº¦é…ç½®ç”Ÿæˆå™¨
     */
     class GradientScaleGenerator {
         public:
             struct GradientRange {
-                long long minVal; // Çø¼ä×îĞ¡Öµ
-                long long maxVal; // Çø¼ä×î´óÖµ
-                int fileCount; // ·ÖÅäµÄÎÄ¼şÊıÁ¿
+                long long minVal; // åŒºé—´æœ€å°å€¼
+                long long maxVal; // åŒºé—´æœ€å¤§å€¼
+                int fileCount; // åˆ†é…çš„æ–‡ä»¶æ•°é‡
             };
 
         private:
@@ -702,9 +702,9 @@ namespace AMPLE_RAND {
 
         public:
             /**
-             * ×Ô¶¯Éú³ÉÌİ¶ÈÅäÖÃ
-             * @param maxScale   ×î´óÊı¾İ¹æÄ£
-             * @param totalFiles ×ÜÎÄ¼şÊıÁ¿£¨Ä¬ÈÏ20£©
+             * è‡ªåŠ¨ç”Ÿæˆæ¢¯åº¦é…ç½®
+             * @param maxScale   æœ€å¤§æ•°æ®è§„æ¨¡
+             * @param totalFiles æ€»æ–‡ä»¶æ•°é‡ï¼ˆé»˜è®¤20ï¼‰
              */
             GradientScaleGenerator( long long maxScale , int totalFiles = 20 ) : totalFiles_( totalFiles ),
                 maxScale_( maxScale ) {
@@ -712,7 +712,7 @@ namespace AMPLE_RAND {
             }
 
             /**
-             * Ê¹ÓÃ×Ô¶¨ÒåÌİ¶ÈÅäÖÃ
+             * ä½¿ç”¨è‡ªå®šä¹‰æ¢¯åº¦é…ç½®
              */
             GradientScaleGenerator( const std::vector < GradientRange > &customGradients ) : gradients_(
                 customGradients ) {
@@ -728,7 +728,7 @@ namespace AMPLE_RAND {
             void autoGenerateGradients() {
                 gradients_.clear();
 
-                // Step 1: Éú³É10µÄÃİ´Î±ß½çµã [1, 10, 100, 1000, ...]
+                // Step 1: ç”Ÿæˆ10çš„å¹‚æ¬¡è¾¹ç•Œç‚¹ [1, 10, 100, 1000, ...]
                 std::vector < long long > boundaries = { 1 };
                 long long val = 10;
                 while ( val < maxScale_ ) {
@@ -736,7 +736,7 @@ namespace AMPLE_RAND {
                     val *= 10;
                 }
 
-                // Step 2: ×îºóÇø¼ä½Ï´óÊ±£¬Ôö¼ÓÖĞ¼ä·Ö¸îµã£¨Èç 50000£©
+                // Step 2: æœ€ååŒºé—´è¾ƒå¤§æ—¶ï¼Œå¢åŠ ä¸­é—´åˆ†å‰²ç‚¹ï¼ˆå¦‚ 50000ï¼‰
                 if ( !boundaries.empty() && boundaries.back() * 5 <= maxScale_ ) {
                     boundaries.push_back( maxScale_ / 2 );
                 }
@@ -748,8 +748,8 @@ namespace AMPLE_RAND {
                     return;
                 }
 
-                // Step 3: ·ÖÅäÎÄ¼şÊıÁ¿
-                // ²ßÂÔ£º×îºóÒ»¸öÇø¼äÔ¼Õ¼25%£¬ÆäÓàÇø¼äÆ½¾ù·ÖÅä
+                // Step 3: åˆ†é…æ–‡ä»¶æ•°é‡
+                // ç­–ç•¥ï¼šæœ€åä¸€ä¸ªåŒºé—´çº¦å 25%ï¼Œå…¶ä½™åŒºé—´å¹³å‡åˆ†é…
                 int lastRangeCount = std::max( 1 , totalFiles_ / 4 );
                 int remainingFiles = totalFiles_ - lastRangeCount;
                 int otherRanges = numRanges - 1;
@@ -760,13 +760,13 @@ namespace AMPLE_RAND {
                     g.maxVal = boundaries[i + 1];
 
                     if ( i < numRanges - 1 && otherRanges > 0 ) {
-                        // Ç°ÃæµÄÇø¼äÆ½¾ù·ÖÅä
+                        // å‰é¢çš„åŒºé—´å¹³å‡åˆ†é…
                         g.fileCount = remainingFiles / otherRanges;
                         if ( i < remainingFiles % otherRanges ) {
                             g.fileCount ++;
                         }
                     } else {
-                        // ×îºóÒ»¸öÇø¼ä
+                        // æœ€åä¸€ä¸ªåŒºé—´
                         g.fileCount = lastRangeCount;
                     }
 
@@ -775,7 +775,7 @@ namespace AMPLE_RAND {
                     }
                 }
 
-                // ĞŞÕıÈ·±£×ÜÊıÕıÈ·
+                // ä¿®æ­£ç¡®ä¿æ€»æ•°æ­£ç¡®
                 int sum = 0;
                 for ( const auto &g : gradients_ ) sum += g.fileCount;
                 if ( sum < totalFiles_ && !gradients_.empty() ) {
@@ -785,19 +785,19 @@ namespace AMPLE_RAND {
 
         public:
             /**
-             * »ñÈ¡µÚindex¸öÎÄ¼şµÄÊı¾İ¹æÄ££¨index´Ó1¿ªÊ¼£©
-             * @param index     ÎÄ¼şË÷Òı£¨1-based£©
-             * @param randomize ÊÇ·ñÔÚ×ÓÇø¼äÄÚËæ»ú»¯
-             * @param opt       Ëæ»ú»¯Ê±µÄÆ«Ïò²ÎÊı
+             * è·å–ç¬¬indexä¸ªæ–‡ä»¶çš„æ•°æ®è§„æ¨¡ï¼ˆindexä»1å¼€å§‹ï¼‰
+             * @param index     æ–‡ä»¶ç´¢å¼•ï¼ˆ1-basedï¼‰
+             * @param randomize æ˜¯å¦åœ¨å­åŒºé—´å†…éšæœºåŒ–
+             * @param opt       éšæœºåŒ–æ—¶çš„åå‘å‚æ•°
              */
             long long getScale( int index , bool randomize = false , double opt = 1.0 ) const {
                 int cumulative = 0;
 
                 for ( const auto &g : gradients_ ) {
                     if ( index <= cumulative + g.fileCount ) {
-                        int pos = index - cumulative; // Çø¼äÄÚÎ»ÖÃ (1-based)
+                        int pos = index - cumulative; // åŒºé—´å†…ä½ç½® (1-based)
 
-                        // ¼ÆËã×ÓÇø¼ä±ß½ç
+                        // è®¡ç®—å­åŒºé—´è¾¹ç•Œ
                         long long rangeSize = g.maxVal - g.minVal;
                         long long subSize = rangeSize / g.fileCount;
                         long long subMin = g.minVal + ( pos - 1 ) * subSize;
@@ -806,7 +806,7 @@ namespace AMPLE_RAND {
                         if ( randomize ) {
                             return AMPLE_RAND::random( subMin , subMax , opt );
                         } else {
-                            // È·¶¨ĞÔ£ºÈ¡×ÓÇø¼äÖĞµã»òÏßĞÔ²åÖµ
+                            // ç¡®å®šæ€§ï¼šå–å­åŒºé—´ä¸­ç‚¹æˆ–çº¿æ€§æ’å€¼
                             return ( subMin + subMax ) / 2;
                         }
                     }
@@ -817,7 +817,7 @@ namespace AMPLE_RAND {
             }
 
             /**
-             * »ñÈ¡µÚindex¸öÎÄ¼şËùÊôµÄÌİ¶ÈÇø¼ä
+             * è·å–ç¬¬indexä¸ªæ–‡ä»¶æ‰€å±çš„æ¢¯åº¦åŒºé—´
              */
             std::pair < long long , long long > getGradientRange( int index ) const {
                 int cumulative = 0;
@@ -831,18 +831,18 @@ namespace AMPLE_RAND {
             }
 
             /**
-             * ´òÓ¡Ìİ¶ÈÅäÖÃĞÅÏ¢
+             * æ‰“å°æ¢¯åº¦é…ç½®ä¿¡æ¯
              */
             void printConfig() const {
-                std::cout << "================== Ìİ¶ÈÅäÖÃ ==================\n";
-                std::cout << "×î´ó¹æÄ£: " << maxScale_ << " | ×ÜÎÄ¼şÊı: " << totalFiles_ << "\n\n";
+                std::cout << "================== æ¢¯åº¦é…ç½® ==================\n";
+                std::cout << "æœ€å¤§è§„æ¨¡: " << maxScale_ << " | æ€»æ–‡ä»¶æ•°: " << totalFiles_ << "\n\n";
 
                 int fileStart = 1;
                 for ( size_t i = 0 ; i < gradients_.size() ; i ++ ) {
                     const auto &g = gradients_[i];
                     int fileEnd = fileStart + g.fileCount - 1;
 
-                    printf( "Çø¼ä %zu: ÎÄ¼ş %2d - %2d  =>  ¹æÄ£ [%7lld, %7lld]  (%d ¸öÎÄ¼ş)\n" ,
+                    printf( "åŒºé—´ %zu: æ–‡ä»¶ %2d - %2d  =>  è§„æ¨¡ [%7lld, %7lld]  (%d ä¸ªæ–‡ä»¶)\n" ,
                             i + 1 , fileStart , fileEnd , g.minVal , g.maxVal , g.fileCount );
 
                     fileStart = fileEnd + 1;
@@ -856,47 +856,47 @@ namespace AMPLE_RAND {
     };
 
     /*
-     *  Ìİ¶ÈµİÔö²ßÂÔ
-     *  LINEAR      - ÏßĞÔµİÔö£º¾ùÔÈ·Ö²¼
-     *  EXPONENTIAL - Ö¸ÊıµİÔö£ºÇ°ÆÚÂıºóÆÚ¿ì£¨ÊÊºÏ²âÊÔ´óÊı¾İ±ß½ç£©
-     *  LOGARITHMIC - ¶ÔÊıµİÔö£ºÇ°ÆÚ¿ìºóÆÚÂı£¨ÊÊºÏ²âÊÔĞ¡Êı¾İÏ¸½Ú£©
-     *  QUADRATIC   - ¶ş´ÎµİÔö£º¼ÓËÙµİÔö
-     *  SQRT        - Æ½·½¸ùµİÔö£º¼õËÙµİÔö
-     *  SIGMOID     - S ĞÍÇúÏß£ºÁ½¶ËÆ½»ºÖĞ¼ä¶¸ÇÍ
-     *  UNIFORM     - ËùÓĞÎÄ¼ş¶¼ÊÇ¾ùÔÈ·Ö²¼£¨opt = 1£©
+     *  æ¢¯åº¦é€’å¢ç­–ç•¥
+     *  LINEAR      - çº¿æ€§é€’å¢ï¼šå‡åŒ€åˆ†å¸ƒ
+     *  EXPONENTIAL - æŒ‡æ•°é€’å¢ï¼šå‰æœŸæ…¢åæœŸå¿«ï¼ˆé€‚åˆæµ‹è¯•å¤§æ•°æ®è¾¹ç•Œï¼‰
+     *  LOGARITHMIC - å¯¹æ•°é€’å¢ï¼šå‰æœŸå¿«åæœŸæ…¢ï¼ˆé€‚åˆæµ‹è¯•å°æ•°æ®ç»†èŠ‚ï¼‰
+     *  QUADRATIC   - äºŒæ¬¡é€’å¢ï¼šåŠ é€Ÿé€’å¢
+     *  SQRT        - å¹³æ–¹æ ¹é€’å¢ï¼šå‡é€Ÿé€’å¢
+     *  SIGMOID     - S å‹æ›²çº¿ï¼šä¸¤ç«¯å¹³ç¼“ä¸­é—´é™¡å³­
+     *  UNIFORM     - æ‰€æœ‰æ–‡ä»¶éƒ½æ˜¯å‡åŒ€åˆ†å¸ƒï¼ˆopt = 1ï¼‰
      */
     enum class GradientStrategy {
-        LINEAR , // ÏßĞÔµİÔö£º¾ùÔÈ·Ö²¼
-        EXPONENTIAL , // Ö¸ÊıµİÔö£ºÇ°ÆÚÂıºóÆÚ¿ì£¨ÊÊºÏ²âÊÔ´óÊı¾İ±ß½ç£©
-        LOGARITHMIC , // ¶ÔÊıµİÔö£ºÇ°ÆÚ¿ìºóÆÚÂı£¨ÊÊºÏ²âÊÔĞ¡Êı¾İÏ¸½Ú£©
-        QUADRATIC , // ¶ş´ÎµİÔö£º¼ÓËÙµİÔö
-        SQRT , // Æ½·½¸ùµİÔö£º¼õËÙµİÔö
-        SIGMOID , // S ĞÍÇúÏß£ºÁ½¶ËÆ½»ºÖĞ¼ä¶¸ÇÍ
-        UNIFORM // ËùÓĞÎÄ¼ş¶¼ÊÇ¾ùÔÈ·Ö²¼£¨opt = 1£©
+        LINEAR , // çº¿æ€§é€’å¢ï¼šå‡åŒ€åˆ†å¸ƒ
+        EXPONENTIAL , // æŒ‡æ•°é€’å¢ï¼šå‰æœŸæ…¢åæœŸå¿«ï¼ˆé€‚åˆæµ‹è¯•å¤§æ•°æ®è¾¹ç•Œï¼‰
+        LOGARITHMIC , // å¯¹æ•°é€’å¢ï¼šå‰æœŸå¿«åæœŸæ…¢ï¼ˆé€‚åˆæµ‹è¯•å°æ•°æ®ç»†èŠ‚ï¼‰
+        QUADRATIC , // äºŒæ¬¡é€’å¢ï¼šåŠ é€Ÿé€’å¢
+        SQRT , // å¹³æ–¹æ ¹é€’å¢ï¼šå‡é€Ÿé€’å¢
+        SIGMOID , // S å‹æ›²çº¿ï¼šä¸¤ç«¯å¹³ç¼“ä¸­é—´é™¡å³­
+        UNIFORM // æ‰€æœ‰æ–‡ä»¶éƒ½æ˜¯å‡åŒ€åˆ†å¸ƒï¼ˆopt = 1ï¼‰
     };
 
     /*
-     * @brief Ìİ¶È²ÎÊı½á¹û½á¹¹Ìå
+     * @brief æ¢¯åº¦å‚æ•°ç»“æœç»“æ„ä½“
      */
     struct GradientOptResult {
-        double opt; // Ó°ÏìÒò×Ó£¬ÓÃÓÚ random(l, r, opt)
-        double target_position; // Ä¿±êÎ»ÖÃ£¨¹éÒ»»¯ 0-1£©
-        double expected_median_ratio; // Ô¤ÆÚÖĞÎ»Êı±ÈÀı£¨0-1£©
-        double expected_mean_ratio; // Ô¤ÆÚ¾ùÖµ±ÈÀı£¨0-1£©
-        int file_id; // ÎÄ¼ş±àºÅ
-        int total_files; // ×ÜÎÄ¼şÊı
+        double opt; // å½±å“å› å­ï¼Œç”¨äº random(l, r, opt)
+        double target_position; // ç›®æ ‡ä½ç½®ï¼ˆå½’ä¸€åŒ– 0-1ï¼‰
+        double expected_median_ratio; // é¢„æœŸä¸­ä½æ•°æ¯”ä¾‹ï¼ˆ0-1ï¼‰
+        double expected_mean_ratio; // é¢„æœŸå‡å€¼æ¯”ä¾‹ï¼ˆ0-1ï¼‰
+        int file_id; // æ–‡ä»¶ç¼–å·
+        int total_files; // æ€»æ–‡ä»¶æ•°
 
-        // ¸ø¶¨·¶Î§ [l, r]£¬¼ÆËãÔ¤ÆÚÖĞÎ»Êı
+        // ç»™å®šèŒƒå›´ [l, r]ï¼Œè®¡ç®—é¢„æœŸä¸­ä½æ•°
         template < typename T > T expected_median( T l , T r ) const {
             return static_cast < T >( l + ( r - l ) * expected_median_ratio );
         }
 
-        // ¸ø¶¨·¶Î§ [l, r]£¬¼ÆËãÔ¤ÆÚ¾ùÖµ
+        // ç»™å®šèŒƒå›´ [l, r]ï¼Œè®¡ç®—é¢„æœŸå‡å€¼
         template < typename T > T expected_mean( T l , T r ) const {
             return static_cast < T >( l + ( r - l ) * expected_mean_ratio );
         }
 
-        // ¸ø¶¨·¶Î§ [l, r]£¬¼ÆËãÔ¤ÆÚ·Ö²¼Çø¼ä£¨25% - 75% ·ÖÎ»Êı£©
+        // ç»™å®šèŒƒå›´ [l, r]ï¼Œè®¡ç®—é¢„æœŸåˆ†å¸ƒåŒºé—´ï¼ˆ25% - 75% åˆ†ä½æ•°ï¼‰
         template < typename T > std::pair < T , T > expected_iqr( T l , T r ) const {
             double q25 = std::pow( 0.25 , 1.0 / opt );
             double q75 = std::pow( 0.75 , 1.0 / opt );
@@ -908,20 +908,20 @@ namespace AMPLE_RAND {
     };
 
     /**
-     * @brief ¼ÆËãÓÃÓÚÌİ¶ÈÊı¾İÉú³ÉµÄ opt ²ÎÊı
+     * @brief è®¡ç®—ç”¨äºæ¢¯åº¦æ•°æ®ç”Ÿæˆçš„ opt å‚æ•°
      *
-     * @param total_files   ×ÜÎÄ¼şÊıÁ¿ (>= 1)
-     * @param file_id       µ±Ç°ÎÄ¼ş±àºÅ
-     * @param zero_indexed  ±àºÅÊÇ·ñ´Ó 0 ¿ªÊ¼
-     *                      - true:  file_id ¡Ê [0, total_files - 1]
-     *                      - false: file_id ¡Ê [1, total_files]£¨Ä¬ÈÏ£©
-     * @param strategy      µİÔö²ßÂÔ£¨Ä¬ÈÏ LINEAR£©
-     * @param sharpness     Èñ¶È²ÎÊı ¡Ê (0, +¡Ş)£¬Ä¬ÈÏ 1.0
-     *                      - > 1: Ê¹²»Í¬ÎÄ¼ş¼äµÄ·Ö²¼²îÒì¸ü´ó
-     *                      - < 1: Ê¹²»Í¬ÎÄ¼ş¼äµÄ·Ö²¼²îÒì¸üĞ¡
-     *                      - = 1: ±ê×¼Ìİ¶È
+     * @param total_files   æ€»æ–‡ä»¶æ•°é‡ (>= 1)
+     * @param file_id       å½“å‰æ–‡ä»¶ç¼–å·
+     * @param zero_indexed  ç¼–å·æ˜¯å¦ä» 0 å¼€å§‹
+     *                      - true:  file_id âˆˆ [0, total_files - 1]
+     *                      - false: file_id âˆˆ [1, total_files]ï¼ˆé»˜è®¤ï¼‰
+     * @param strategy      é€’å¢ç­–ç•¥ï¼ˆé»˜è®¤ LINEARï¼‰
+     * @param sharpness     é”åº¦å‚æ•° âˆˆ (0, +âˆ)ï¼Œé»˜è®¤ 1.0
+     *                      - > 1: ä½¿ä¸åŒæ–‡ä»¶é—´çš„åˆ†å¸ƒå·®å¼‚æ›´å¤§
+     *                      - < 1: ä½¿ä¸åŒæ–‡ä»¶é—´çš„åˆ†å¸ƒå·®å¼‚æ›´å°
+     *                      - = 1: æ ‡å‡†æ¢¯åº¦
      *
-     * @return GradientOptResult °üº¬ opt ¼°Ô¤ÆÚ·Ö²¼ĞÅÏ¢
+     * @return GradientOptResult åŒ…å« opt åŠé¢„æœŸåˆ†å¸ƒä¿¡æ¯
      */
     GradientOptResult compute_gradient_opt(
         int total_files ,
@@ -932,7 +932,7 @@ namespace AMPLE_RAND {
     );
 
     /**
-     * @brief Ö±½Ó»ñÈ¡ opt Öµ£¨¼ò»¯°æ£©
+     * @brief ç›´æ¥è·å– opt å€¼ï¼ˆç®€åŒ–ç‰ˆï¼‰
      */
     double getGradientOpt(
         int total_files ,
@@ -942,7 +942,7 @@ namespace AMPLE_RAND {
         double sharpness = 1.0 );
 
     /**
-     * @brief ÅúÁ¿»ñÈ¡ËùÓĞÎÄ¼şµÄ opt Êı×é
+     * @brief æ‰¹é‡è·å–æ‰€æœ‰æ–‡ä»¶çš„ opt æ•°ç»„
      */
     std::vector < double > getAllGradientOpts(
         int total_files ,
@@ -950,16 +950,16 @@ namespace AMPLE_RAND {
         double sharpness = 1.0 );
 
     /**
-     * @brief ¶àÎÄ¼ş¶à×éÊı¾İÉú³É
-     * @param startIndex ÎÄ¼şÆğÊ¼±àºÅ
-     * @param endIndex ÎÄ¼ş½áÊø±àºÅ
-     * @param Limit Êı¾İ¹æÄ£ÉÏÏŞ
-     * @param solve Êı¾İÉú³ÉÂß¼­´úÂë
-     * @param ins ÊäÈëÎÄ¼şÁ÷
-     * @param ous Êä³öÎÄ¼şÁ÷
-     * @param multiple ¶à×éÊı¾İ¹æÄ£ÉÏÏŞ
-     * @param strategy µİÔö²ßÂÔ
-     * @return ÊÇ·ñÉú³É³É¹¦
+     * @brief å¤šæ–‡ä»¶å¤šç»„æ•°æ®ç”Ÿæˆ
+     * @param startIndex æ–‡ä»¶èµ·å§‹ç¼–å·
+     * @param endIndex æ–‡ä»¶ç»“æŸç¼–å·
+     * @param Limit æ•°æ®è§„æ¨¡ä¸Šé™
+     * @param solve æ•°æ®ç”Ÿæˆé€»è¾‘ä»£ç 
+     * @param ins è¾“å…¥æ–‡ä»¶æµ
+     * @param ous è¾“å‡ºæ–‡ä»¶æµ
+     * @param multiple å¤šç»„æ•°æ®è§„æ¨¡ä¸Šé™
+     * @param strategy é€’å¢ç­–ç•¥
+     * @return æ˜¯å¦ç”ŸæˆæˆåŠŸ
      */
     bool batchGenerateFiles( int startIndex , int endIndex ,
                              std::function < void( long long , long long , double ) > solve ,
@@ -987,19 +987,19 @@ using AMPLE_RAND::getGradientOpt;
 using AMPLE_RAND::getAllGradientOpts;
 using AMPLE_RAND::batchGenerateFiles;
 
-// Êı¾İÎÄ¼şµØÖ·
+// æ•°æ®æ–‡ä»¶åœ°å€
 const std::string dataFilePath = "D:\\Desktop\\data\\";
 
-// ÊäÈëÊä³öÎÄ¼şÀàĞÍ
+// è¾“å…¥è¾“å‡ºæ–‡ä»¶ç±»å‹
 const std::string inFileType = ".in";
 const std::string outFileType = ".out";
 
-// ×Ö·û¼¯
+// å­—ç¬¦é›†
 const std::string charNumber = "0123456789";
 const std::string charLowerCase = "abcdefghijklmnopqrstuvwxyz";
 const std::string charUpperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-// Êı¾İ½á¹¹¼òĞ´
+// æ•°æ®ç»“æ„ç®€å†™
 using vvi = std::vector < std::vector < long long > >;
 using vvI = std::vector < std::vector < signed > >;
 using vi = std::vector < long long >;
@@ -1014,7 +1014,7 @@ using PII = std::pair < long long , long long >;
 using PDD = std::pair < double , double >;
 using PPI = std::pair < std::pair < long long , long long > , long long >;
 
-// ³£ÓÃÊı¾İ
+// å¸¸ç”¨æ•°æ®
 const long long INF = 0X7FFFFFFF;
 const long long MAX = 0x3f3f3f3f3f3f3f3f;
 const long long mod = 1e9 + 7;

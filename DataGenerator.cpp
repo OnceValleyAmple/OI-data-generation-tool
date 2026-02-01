@@ -664,92 +664,91 @@ namespace AMPLE_RAND {
         // ───────────────────────────────────────────────────────────────────
         // 基本校验
         // ───────────────────────────────────────────────────────────────────
-        if ( n <= 0 ) {
-            throw std::invalid_argument( "n must be positive" );
+        if ( n <= 0 ) throw std::invalid_argument( "n must be positive" );
+        if ( m < 0 ) throw std::invalid_argument( "m must be non-negative" );
+
+        // 【重要】针对有向强连通图，最小边数校验
+        int min_required = 0;
+        if ( connected && n > 1 ) {
+            min_required = directional ? n : n - 1;
         }
-        if ( m < 0 ) {
-            throw std::invalid_argument( "m must be non-negative" );
+        if ( m < min_required ) {
+            // 这里可以选择抛出异常，或者让后续逻辑尽力而为
+            // throw std::invalid_argument("m is not enough for connected graph");
         }
+
         std::vector < Edge > edges;
         edges.reserve( m );
-        if ( m == 0 || n == 0 ) {
-            return std::vector < std::pair < int , int > >();
-        }
+        if ( m == 0 || n == 0 ) return {};
+
         // ───────────────────────────────────────────────────────────────────
-        // 边去重集合（当不允许重边时使用）
+        // 边去重集合
         // ───────────────────────────────────────────────────────────────────
         struct PairHash {
             size_t operator()( const std::pair < int , int > &p ) const {
-                return std::hash < long long >()(
-                    static_cast < long long >( p.first ) * 1000000007LL + p.second
-                );
+                return std::hash < long long >()( static_cast < long long >( p.first ) * 1000000007LL + p.second );
             }
         };
         std::unordered_set < std::pair < int , int > , PairHash > edge_set;
-        // ───────────────────────────────────────────────────────────────────
-        // 添加边的辅助函数
-        // ───────────────────────────────────────────────────────────────────
+
         auto try_add_edge = [&]( int u , int v ) ->bool {
-            // 自环检查
-            if ( !self_rings && u == v ) {
-                return false;
-            }
-            // 标准化边（无向图时保证 u <= v）
+            if ( !self_rings && u == v ) return false;
             std::pair < int , int > e = { u , v };
-            if ( !directional && u > v ) {
-                std::swap( e.first , e.second );
-            }
-            // 重边检查
+            if ( !directional && u > v ) std::swap( e.first , e.second );
+
             if ( !repeated_edges ) {
-                if ( edge_set.count( e ) ) {
-                    return false;
-                }
+                if ( edge_set.count( e ) ) return false;
                 edge_set.insert( e );
             }
             edges.push_back( { u , v } );
             return true;
         };
+
         // ───────────────────────────────────────────────────────────────────
-        // Step 1: 如果需要连通，先生成基础连通结构
+        // Step 1: 连通性构造 (修复了有向图不连通的问题)
         // ───────────────────────────────────────────────────────────────────
         if ( connected && n > 1 ) {
-            // 生成随机排列用于构建生成树/路径
             std::vector < int > perm( n );
             std::iota( perm.begin() , perm.end() , 0 );
-            // Fisher-Yates 打乱
+            // Shuffle nodes
             for ( int i = n - 1 ; i > 0 ; --i ) {
                 std::uniform_int_distribution < int > dist( 0 , i );
                 std::swap( perm[i] , perm[dist( rng_64 )] );
             }
-            // 每个节点连接到前面的某个节点，形成生成树
-            std::uniform_real_distribution < double > real_dist( 0.0 , 1.0 );
-            for ( int i = 1 ; i < n ; ++i ) {
-                // 随机选择 [0, i-1] 中的一个节点作为父节点
-                std::uniform_int_distribution < int > parent_dist( 0 , i - 1 );
-                int parent_idx = parent_dist( rng_64 );
-                int u = perm[parent_idx];
-                int v = perm[i];
-                // 有向图时随机决定方向
-                if ( directional && real_dist( rng_64 ) < 0.5 ) {
-                    std::swap( u , v );
+
+            if ( directional ) {
+                // 【修复】有向图：构建一个哈密顿回路 (Circle)，保证强连通
+                // 需要 n 条边: 0->1->2->...->n-1->0
+                for ( int i = 0 ; i < n ; ++i ) {
+                    int u = perm[i];
+                    int v = perm[( i + 1 ) % n];
+                    try_add_edge( u , v );
                 }
-                try_add_edge( u , v );
+            } else {
+                // 无向图：构建生成树 (Tree)
+                // 需要 n-1 条边
+                for ( int i = 1 ; i < n ; ++i ) {
+                    std::uniform_int_distribution < int > parent_dist( 0 , i - 1 );
+                    int parent_idx = parent_dist( rng_64 );
+                    try_add_edge( perm[parent_idx] , perm[i] );
+                }
             }
         }
+
         // ───────────────────────────────────────────────────────────────────
         // Step 2: 随机添加剩余的边
         // ───────────────────────────────────────────────────────────────────
         int remaining = m - static_cast < int >( edges.size() );
+
         if ( remaining > 0 ) {
-            std::uniform_int_distribution < int > node_dist( 0 , n - 1 );
-            // 计算可能的边总数
+            // 计算最大可能边数
             long long max_possible = compute_max_edges( n , repeated_edges , self_rings , directional );
-            // 根据稀疏程度选择算法
             double density = static_cast < double >( m ) / std::max( 1LL , max_possible );
+
+            std::uniform_int_distribution < int > node_dist( 0 , n - 1 );
+
             if ( density < 0.5 || repeated_edges ) {
-                // ─────────────────────────────────────────────────────────────
-                // 稀疏图：随机采样法
-                // ─────────────────────────────────────────────────────────────
+                // 稀疏图：随机采样
                 int max_attempts = remaining * 100 + 10000;
                 int attempts = 0;
                 while ( remaining > 0 && attempts < max_attempts ) {
@@ -760,49 +759,45 @@ namespace AMPLE_RAND {
                     }
                     ++attempts;
                 }
-                // 如果随机采样失败，使用枚举法补充
+                // 随机失败兜底：枚举
                 if ( remaining > 0 && !repeated_edges ) {
                     for ( int u = 0 ; u < n && remaining > 0 ; ++u ) {
                         int v_start = directional ? 0 : u;
                         for ( int v = v_start ; v < n && remaining > 0 ; ++v ) {
-                            if ( try_add_edge( u , v ) ) {
-                                --remaining;
-                            }
+                            if ( try_add_edge( u , v ) ) --remaining;
                         }
                     }
                 }
             } else {
-                // ─────────────────────────────────────────────────────────────
-                // 稠密图：枚举所有可能的边，然后随机选择
-                // ─────────────────────────────────────────────────────────────
+                // 稠密图：生成所有候选边后洗牌
                 std::vector < std::pair < int , int > > all_edges;
+                // 预估大小以减少realloc
+                all_edges.reserve( directional ? ( long long ) n * n : ( long long ) n * ( n + 1 ) / 2 );
+
+                // 【修复】修正后的枚举逻辑
                 for ( int u = 0 ; u < n ; ++u ) {
+                    // 如果是有向图，v从0开始；如果是无向图，v从u开始
                     int v_start = directional ? 0 : u;
                     for ( int v = v_start ; v < n ; ++v ) {
+                        // 自环检查
                         if ( !self_rings && u == v ) continue;
-                        if ( directional && u == v && !self_rings ) continue;
+
+                        // 检查是否已存在（Step 1 生成的边）
                         std::pair < int , int > e = { u , v };
                         if ( !directional && u > v ) std::swap( e.first , e.second );
+
                         if ( !edge_set.count( e ) ) {
                             all_edges.push_back( { u , v } );
                         }
                     }
-                    // 有向图需要考虑反向边
-                    if ( directional ) {
-                        for ( int v = 0 ; v < u ; ++v ) {
-                            if ( !self_rings && u == v ) continue;
-                            std::pair < int , int > e = { u , v };
-                            if ( !edge_set.count( e ) ) {
-                                all_edges.push_back( { u , v } );
-                            }
-                        }
-                    }
                 }
-                // Fisher-Yates 打乱并取前 remaining 条
+
+                // Fisher-Yates 洗牌并选取
                 for ( size_t i = all_edges.size() ; i > 0 && remaining > 0 ; --i ) {
                     std::uniform_int_distribution < size_t > dist( 0 , i - 1 );
                     size_t j = dist( rng_64 );
                     std::swap( all_edges[i - 1] , all_edges[j] );
+
                     auto &e = all_edges[i - 1];
                     if ( try_add_edge( e.first , e.second ) ) {
                         --remaining;
@@ -810,28 +805,28 @@ namespace AMPLE_RAND {
                 }
             }
         }
+
         // ───────────────────────────────────────────────────────────────────
-        // Step 3: 打乱边的顺序和端点顺序
+        // Step 3: 打乱最终结果
         // ───────────────────────────────────────────────────────────────────
-        // 打乱边的顺序
         for ( int i = static_cast < int >( edges.size() ) - 1 ; i > 0 ; --i ) {
             std::uniform_int_distribution < int > dist( 0 , i );
             std::swap( edges[i] , edges[dist( rng_64 )] );
         }
-        // 对于无向图，随机交换每条边的端点
+
         if ( !directional ) {
             std::bernoulli_distribution coin( 0.5 );
             for ( auto &e : edges ) {
-                if ( coin( rng_64 ) ) {
-                    std::swap( e.u , e.v );
-                }
+                if ( coin( rng_64 ) ) std::swap( e.u , e.v );
             }
         }
-        std::vector < std::pair < int , int > > e;
-        for ( const auto &[u,v] : edges ) {
-            e.emplace_back( u + base , v + base );
+
+        std::vector < std::pair < int , int > > result;
+        result.reserve( edges.size() );
+        for ( const auto &[u, v] : edges ) {
+            result.emplace_back( u + base , v + base );
         }
-        return e;
+        return result;
     }
 
     std::vector < std::pair < int , int > > RANDOMGRAPH::random_binary_graph(
