@@ -34,8 +34,8 @@
 ### 1. 克隆仓库
 
 ```bash
-git clone https://github.com/yourusername/oi-data-generator.git
-cd oi-data-generator
+git clone https://github.com/OnceValleyAmple/OI-data-generation-tool.git
+cd OI-data-generation-tool
 ```
 
 ### 2. 基本使用示例
